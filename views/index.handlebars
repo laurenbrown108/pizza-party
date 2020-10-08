@@ -1,0 +1,9 @@
+<h1> Pizza Party!</h1>
+
+<ul>
+    {{#each pizza}}
+        {{#unless devoured}}
+            <li> {{pizza_name}} </li>
+        {{/unless}}
+    {{/each}}
+</ul>

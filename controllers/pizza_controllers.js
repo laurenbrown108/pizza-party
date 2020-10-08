@@ -10,7 +10,8 @@ router.get("/", function (req, res){
             pizza: data
         }
         console.log(pizzaTime);
-    })
-})
+        res.render("index", pizzaTime);
+    });
+});
 
 module.exports = router;

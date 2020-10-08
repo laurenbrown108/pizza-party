@@ -1,1 +1,1 @@
-INSERT INTO pizzas (pizza_name) VALUES ("pinapple pizza"), ("white with ricotta"), ("plain");
+INSERT INTO pizzas (pizza_name) VALUES ("pineapple pizza"), ("white with ricotta"), ("plain");
