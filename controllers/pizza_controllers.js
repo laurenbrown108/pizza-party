@@ -4,6 +4,13 @@ const router = express.Router();
 
 router.get("/", function (req, res){
     console.log("HI!");
+    //THIS IS SHOWING UP.
+    pizza.all(function(data){
+        var pizzaTime = {
+            pizza: data
+        }
+        console.log(pizzaTime);
+    })
 })
 
 module.exports = router;

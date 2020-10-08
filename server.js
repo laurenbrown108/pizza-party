@@ -14,7 +14,7 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 const router = require("./controllers/pizza_controllers")
-app.use("/", router);
+app.use(router); 
 
 // Start our server so that it can begin listening to client requests.
 app.listen(PORT, function () {

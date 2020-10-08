@@ -1,5 +1,11 @@
 const orm = require("../config/orm")
 
-console.log("hi");
+var pizza = {
+    all: function(cb) {
+        orm.all("pizza", function(res) {
+            return cb(res)
+        })
+    }
+}
 
-//module.exports = pizza;
+module.exports = pizza;
