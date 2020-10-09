@@ -2,8 +2,8 @@ const express = require("express");
 const pizza = require("../models/pizza");
 const router = express.Router();
 
-router.get("/", function (req, res) {
-    pizza.all(function (data) {
+router.get("/", (req, res) => {
+    pizza.all( (data) => {
         var pizzaTime = {
             pizza: data
         }
@@ -12,20 +12,20 @@ router.get("/", function (req, res) {
     });
 });
 
-router.post("/api/pizza", function (req, res) {
-    pizza.add(["pizza_name"], [req.body.pizza_name], function (response) {
+router.post("/api/pizza", (req, res) => {
+    pizza.add(["pizza_name"], [req.body.pizza_name], (response) => {
         res.json({ pizza_name: res.pizza_name })
     })
 })
 
-router.put("/api/pizza/:id", function (req, res) {
+router.put("/api/pizza/:id", (req, res) => {
     var condition = "id = " + req.params.id;
 
     console.log("condition", condition);
 
     pizza.update({
         devoured: req.body.devoured
-    }, condition, function (result) {
+    }, condition, (result) => {
         if (result.changedRows == 0) {
             return res.status(404).end();
         } else {
@@ -33,5 +33,15 @@ router.put("/api/pizza/:id", function (req, res) {
         }
     });
 });
+
+router.delete("/api/pizza/:id", (req, res) => {
+    const pizzaID = req.params.id;
+
+    pizza.delete(pizzaID, function (){
+        res.status(200).end();
+    })
+    
+  
+  });
 
 module.exports = router;
