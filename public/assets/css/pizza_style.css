@@ -1,0 +1,47 @@
+html {
+    min-height: 100%;
+}
+
+body {
+    background-image: url("../img/pizzapizza.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+
+}
+
+.header {
+    font-size: 60px;
+    padding: 20px;
+}
+
+.make {
+    color: red;
+    text-align: center;
+}
+
+.card {
+    
+    color: wheat;
+    border-color: wheat;
+    border-style: solid;
+    background-color:  black;
+    text-align: center;
+    min-height: 300px;
+    border-radius: 25px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    /* overflow-y: scroll; */
+}
+
+button {
+    color: wheat;
+    background-color: black;
+    border-color: red;
+    border-radius: 5px;
+}
+
+li {
+    padding-bottom: 5px;
+}
+
