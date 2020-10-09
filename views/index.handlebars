@@ -1,9 +1,87 @@
 <h1> Pizza Party!</h1>
 
-<ul>
-    {{#each pizza}}
-        {{#unless devoured}}
-            <li> {{pizza_name}} </li>
-        {{/unless}}
-    {{/each}}
-</ul>
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-6">
+            <ul>
+                {{#each pizza}}
+                {{#unless devoured}}
+                <li>
+                    {{pizza_name}}
+                    <button class="devour" data-id="{{id}}"> DEVOUR! </button>
+                </li>
+                {{/unless}}
+                {{/each}}
+            </ul>
+        </div>
+        <div class="col-md-6">
+            <h1> Devoured Pizzas of the Past</h1>
+            <ul>
+                {{#each pizza}}
+                {{#if devoured}}
+                <li>
+                    {{pizza_name}}
+                </li>
+                {{/if}}
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <h1> Make a Pizza </h1>
+        <form class="create-form">
+
+            <div class="form-group">
+                <input type="text" id="pz" name="name">
+            </div>
+
+            <button type="submit">Submit </button>
+        </form>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        $(document).ready(function () {
+
+            $(".devour").on("click", function (event) {
+                event.preventDefault();
+                var id = $(this).data("id");
+
+                var pizzaStatus = {
+                    devoured: 1
+                };
+
+                // Send the PUT request.
+                $.ajax("/api/pizza/" + id, {
+                    type: "PUT",
+                    data: pizzaStatus
+                }).then(
+                    function () {
+                        // Reload the page to get the updated list
+                        location.reload();
+                    }
+                );
+
+            });
+
+            $(".create-form").on("submit", function (event) {
+                event.preventDefault();
+
+                var newPizza = {
+                    pizza_name: $("#pz").val().trim(),
+                };
+
+                $.ajax("/api/pizza", {
+                    type: "POST",
+                    data: newPizza
+                }).then(
+                    function () {
+                        location.reload();
+                    }
+                );
+            });
+        })
+    })
+</script>
