@@ -1,16 +1,18 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12 make">
-            <div class="card">
+            <div class="card make">
                 <div class="card-body">
                     <h1 class="header"> Make a Pizza </h1>
+                    <img src="assets/img/pizza-steve.png" alt="pizza slice">
                     <form class="create-form">
 
                         <div class="form-group">
                             <input type="text" id="pz" name="name">
+                            <button type="submit">COOK </button>
                         </div>
 
-                        <button type="submit">Submit </button>
+                        
                     </form>
                 </div>
             </div>
@@ -21,10 +23,10 @@
             <div class="card">
                 <div class="card-body">
                     <h1> Pizza Party!!!</h1>
-                    <ul>
+                    <ul class="nobullets">
                         {{#each pizza}}
                         {{#unless devoured}}
-                        <li>
+                        <li class="pizzaparty">
                             {{pizza_name}}
                             <button class="devour" data-id="{{id}}"> DEVOUR! </button>
                         </li>
@@ -38,7 +40,7 @@
             <div class="card">
                 <div class="card-body">
                     <h1> Pizzas of the Past</h1>
-                    <ul>
+                    <ul class="nobullets">
                         {{#each pizza}}
                         {{#if devoured}}
                         <li>
