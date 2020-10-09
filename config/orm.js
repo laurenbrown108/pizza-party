@@ -1,5 +1,7 @@
+//Importing MySQL connection
 const connection = require("../config/connection")
 
+//Function to loop through and generate question marks for values that will be used for MySQL query.
 function printQuestionMarks(num) {
     var arr = [];
 
@@ -9,7 +11,7 @@ function printQuestionMarks(num) {
 
     return arr.toString();
 };
-
+//Function to convert objects
 function objToSql(ob) {
     var arr = [];
 
@@ -21,7 +23,7 @@ function objToSql(ob) {
 
     return arr.toString();
 };
-
+//ORM object
 const orm = {
 
     all: function (tableInput, cb) {
@@ -82,5 +84,5 @@ const orm = {
 
 
 }
-
+//Exports ORM object to use with model
 module.exports = orm;

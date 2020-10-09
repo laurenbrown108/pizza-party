@@ -69,7 +69,7 @@
                         window.location = "/";
                     });
                 });
-
+                // UPDATE
                 $(".devour").on("click", function (event) {
                     event.preventDefault();
                     var id = $(this).data("id");
@@ -78,19 +78,17 @@
                         devoured: 1
                     };
 
-                    // Send the PUT request.
                     $.ajax("/api/pizza/" + id, {
                         type: "PUT",
                         data: pizzaStatus
                     }).then(
                         function () {
-                            // Reload the page to get the updated list
                             location.reload();
                         }
                     );
 
                 });
-
+                //POST
                 $(".create-form").on("submit", function (event) {
                     event.preventDefault();
 

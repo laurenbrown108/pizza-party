@@ -1,5 +1,5 @@
 const orm = require("../config/orm")
-
+//Functions for ORM
 var pizza = {
     all: function(cb) {
         orm.all("pizza", (res) => {

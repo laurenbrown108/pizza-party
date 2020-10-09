@@ -1,6 +1,9 @@
+//Variables
 require("dotenv").config();
+//Requiring MySQL
 const mysql = require("mysql");
 
+//Setting up connection on Heroku or locally
 var connection;
 if (process.env.JAWSDB_URL) {
     connection = mysql.createConnection(process.env.JAWSDB_URL)
@@ -23,5 +26,5 @@ connection.connect(function (err) {
     }
     console.log("connected as id " + connection.threadId);
 });
-
+//Export to use with ORM.
 module.exports = connection;
